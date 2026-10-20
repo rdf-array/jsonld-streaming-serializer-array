@@ -13,7 +13,9 @@
     "sourceMap": true,
     "inlineSources": true,
     "declaration": true,
-    "importHelpers": false
+    "importHelpers": false,
+    "outDir": "dist",
+    "rootDir": "."
   },
   "include": [
     "index.ts",

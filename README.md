@@ -1,3 +1,15 @@
+<img src=".github/rdf-array-logo.png" alt="[jsonld-streaming-serializer]" width="96" align="right">
+
+# jsonld-streaming-serializer-array: jsonld-streaming-serializer for RDF-
+
+**RDF-** fork of [jsonld-streaming-serializer](https://github.com/rubensworks/jsonld-streaming-serializer.js): a **sequence**
+term (`termType: "Sequence"`, see [rdf-data-factory-array](https://github.com/rdf-array/rdf-data-factory-array)) in
+object position is written as a JSON-LD `@list` of its elements, nested sequences as nested lists; the `list()`
+helper for callers without sequence terms stays. A sequence cannot be a subject, since it has no `@id`, and is
+refused with an error.
+Part of the [comunica-array](https://github.com/rdf-array/comunica-array) stack, whose doc/rdf-array.md lists the
+sibling forks.
+
 # JSON-LD Streaming Serializer
 
 [![Build status](https://github.com/rubensworks/jsonld-streaming-serializer.js/workflows/CI/badge.svg)](https://github.com/rubensworks/jsonld-streaming-serializer.js/actions?query=workflow%3ACI)

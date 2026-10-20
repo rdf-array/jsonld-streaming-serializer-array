@@ -265,6 +265,29 @@ describe('Util', () => {
         expect(e.code).toEqual(ERROR_CODES.INVALID_JSON_LITERAL);
       }
     });
+
+    it('should handle sequences as @list (RDF-)', async () => {
+      return expect(Util.termToValue(DF.sequence([
+        DF.namedNode('http://ex.org/a'),
+        DF.literal('abc'),
+        DF.literal('abc', DF.namedNode('http://ex.org/type')),
+        DF.sequence([ DF.literal('abc', 'en') ]),
+        DF.sequence([]),
+      ]), new JsonLdContextNormalized({})))
+        .toEqual({ '@list': [
+          { '@id': 'http://ex.org/a' },
+          { '@value': 'abc' },
+          { '@value': 'abc', '@type': 'http://ex.org/type' },
+          { '@list': [ { '@value': 'abc', '@language': 'en' } ] },
+          { '@list': [] },
+        ] });
+    });
+
+    it('should handle sequences with compactIds true (RDF-)', async () => {
+      return expect(Util.termToValue(DF.sequence([ DF.namedNode('http://ex.org/a') ]), new JsonLdContextNormalized({}),
+        { compactIds: true }))
+        .toEqual({ '@list': [ 'http://ex.org/a' ] });
+    });
   });
 
 });

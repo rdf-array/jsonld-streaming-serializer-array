@@ -25,6 +25,9 @@ export class Util {
     useNativeTypes: false,
   }): any {
     switch (term.termType) {
+    case 'Sequence':
+      // RDF-: a sequence term is a JSON-LD @list of its elements
+      return { '@list': term.elements.map((element) => Util.termToValue(element, context, options)) };
     case 'NamedNode':
       const compacted = context.compactIri(term.value, options.vocab);
       return options.compactIds ? compacted : { '@id': compacted };

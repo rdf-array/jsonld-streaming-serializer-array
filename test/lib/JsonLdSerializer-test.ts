@@ -1282,6 +1282,34 @@ describe('JsonLdSerializer', () => {
         },
       ]);
     });
+
+    it('should emit a sequence term as a list (RDF-)', async () => {
+      serializer.write(DF.quad(DF.namedNode('http://ex.org/subj1'), DF.namedNode('http://ex.org/pred1'),
+        DF.sequence([ DF.namedNode('a'), DF.literal('b'), DF.sequence([]) ])));
+      serializer.end();
+      return expect(JSON.parse(await stringifyStream(serializer))).toEqual([
+        {
+          "@id": "http://ex.org/subj1",
+          "http://ex.org/pred1": [
+            {
+              "@list": [
+                { '@id': 'a' },
+                { '@value': 'b' },
+                { '@list': [] },
+              ],
+            },
+          ],
+        },
+      ]);
+    });
+
+    it('should fail on a sequence term as subject (RDF-)', async () => {
+      serializer.write(DF.quad(DF.sequence([ DF.namedNode('a') ]), DF.namedNode('http://ex.org/pred1'),
+        DF.namedNode('http://ex.org/obj1')));
+      serializer.end();
+      return expect(stringifyStream(serializer)).rejects
+        .toThrow('A sequence cannot be the subject of a JSON-LD node: (<a>)');
+    });
   });
 
 });
