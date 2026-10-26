@@ -191,7 +191,7 @@ class JsonLdSerializer extends readable_stream_1.Transform {
      */
     pushId(term, startOnNewLine, context) {
         if (term.termType === 'Sequence') {
-            // RDF-: a sequence has no identifier to put in an @id
+            // rdf-array: a sequence has no identifier to put in an @id
             throw new Error(`A sequence cannot be the subject of a JSON-LD node: ${term.value}`);
         }
         if (term.termType === 'Quad') {

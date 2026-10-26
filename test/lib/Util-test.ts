@@ -266,7 +266,7 @@ describe('Util', () => {
       }
     });
 
-    it('should handle sequences as @list (RDF-)', async () => {
+    it('should handle sequences as @list (rdf-array)', async () => {
       return expect(Util.termToValue(DF.sequence([
         DF.namedNode('http://ex.org/a'),
         DF.literal('abc'),
@@ -283,7 +283,7 @@ describe('Util', () => {
         ] });
     });
 
-    it('should handle sequences with compactIds true (RDF-)', async () => {
+    it('should handle sequences with compactIds true (rdf-array)', async () => {
       return expect(Util.termToValue(DF.sequence([ DF.namedNode('http://ex.org/a') ]), new JsonLdContextNormalized({}),
         { compactIds: true }))
         .toEqual({ '@list': [ 'http://ex.org/a' ] });

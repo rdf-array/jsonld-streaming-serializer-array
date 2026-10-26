@@ -222,7 +222,7 @@ export class JsonLdSerializer extends Transform {
    */
   protected pushId(term: RDF.Term, startOnNewLine: boolean, context: JsonLdContextNormalized) {
     if (term.termType === 'Sequence') {
-      // RDF-: a sequence has no identifier to put in an @id
+      // rdf-array: a sequence has no identifier to put in an @id
       throw new Error(`A sequence cannot be the subject of a JSON-LD node: ${term.value}`);
     }
     if (term.termType === 'Quad') {

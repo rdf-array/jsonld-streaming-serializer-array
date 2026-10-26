@@ -1,6 +1,6 @@
 <img src=".github/rdf-array-logo.png" alt="[jsonld-streaming-serializer]" width="96" align="right">
 
-# jsonld-streaming-serializer-array: jsonld-streaming-serializer for RDF-
+# jsonld-streaming-serializer-array: jsonld-streaming-serializer for rdf-array
 
 **RDF-** fork of [jsonld-streaming-serializer](https://github.com/rubensworks/jsonld-streaming-serializer.js): a **sequence**
 term (`termType: "Sequence"`, see [rdf-data-factory-array](https://github.com/rdf-array/rdf-data-factory-array)) in

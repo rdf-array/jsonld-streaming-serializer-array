@@ -1283,7 +1283,7 @@ describe('JsonLdSerializer', () => {
       ]);
     });
 
-    it('should emit a sequence term as a list (RDF-)', async () => {
+    it('should emit a sequence term as a list (rdf-array)', async () => {
       serializer.write(DF.quad(DF.namedNode('http://ex.org/subj1'), DF.namedNode('http://ex.org/pred1'),
         DF.sequence([ DF.namedNode('a'), DF.literal('b'), DF.sequence([]) ])));
       serializer.end();
@@ -1303,7 +1303,7 @@ describe('JsonLdSerializer', () => {
       ]);
     });
 
-    it('should fail on a sequence term as subject (RDF-)', async () => {
+    it('should fail on a sequence term as subject (rdf-array)', async () => {
       serializer.write(DF.quad(DF.sequence([ DF.namedNode('a') ]), DF.namedNode('http://ex.org/pred1'),
         DF.namedNode('http://ex.org/obj1')));
       serializer.end();
