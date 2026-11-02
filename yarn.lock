@@ -826,9 +826,9 @@
   dependencies:
     "@types/rdf-js" "*"
 
-"@rdfjs/types@^2.0.0", "@rdfjs/types@github:rdf-array/types-array#rdf-sequences":
+"@rdfjs/types@^2.0.0", "@rdfjs/types@github:rdf-array/types-array#rdf-undef":
   version "2.0.1"
-  resolved "https://codeload.github.com/rdf-array/types-array/tar.gz/a68a2aaf0e40be543d503881ac21a57351605d9e"
+  resolved "https://codeload.github.com/rdf-array/types-array/tar.gz/4dd00611935079dd3bf6d2a08e0cada9fbbc80b2"
   dependencies:
     "@types/node" "*"
 
@@ -3734,9 +3734,9 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-rdf-data-factory@^1.0.0, rdf-data-factory@^1.0.1, rdf-data-factory@^1.0.2, rdf-data-factory@^2.0.0, "rdf-data-factory@github:rdf-array/rdf-data-factory-array#rdf-sequences":
+rdf-data-factory@^1.0.0, rdf-data-factory@^1.0.1, rdf-data-factory@^1.0.2, rdf-data-factory@^2.0.0, "rdf-data-factory@github:rdf-array/rdf-data-factory-array#rdf-undef":
   version "2.1.0"
-  resolved "https://codeload.github.com/rdf-array/rdf-data-factory-array/tar.gz/6912f4ceb763bf4d3a23f44b4d3e43a7f8f52903"
+  resolved "https://codeload.github.com/rdf-array/rdf-data-factory-array/tar.gz/c88097c1fa447d5c0932d5b24579073811a348c0"
   dependencies:
     "@rdfjs/types" "^2.0.0"
 

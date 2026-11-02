@@ -7,6 +7,11 @@ term (`termType: "Sequence"`, see [rdf-data-factory-array](https://github.com/rd
 object position is written as a JSON-LD `@list` of its elements, nested sequences as nested lists; the `list()`
 helper for callers without sequence terms stays. A sequence cannot be a subject, since it has no `@id`, and is
 refused with an error.
+**rdf-undef** (branch `rdf-undef`; [rdf-undef.md](https://github.com/rdf-array/rdf-array/blob/rdf-undef/docs/rdf-undef.md)):
+the option `undefSlots: true` writes the empty slot of a sequence as a `null` in its list, `( 1 undef )` as
+`{ "@list": [ 1, null ] }`. Without it a sequence holding a slot is refused, with an error naming the sequence, since
+JSON-LD 1.1 would drop the null. Tests: `test/lib/UndefSlots-test.ts`, 113 → 116, all passing, 100% coverage.
+
 Part of the [comunica-array](https://github.com/rdf-array/comunica-array) stack, whose doc/rdf-array.md lists the
 sibling forks.
 

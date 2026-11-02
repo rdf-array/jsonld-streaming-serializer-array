@@ -20,7 +20,16 @@ class Util {
         switch (term.termType) {
             case 'Sequence':
                 // rdf-array: a sequence term is a JSON-LD @list of its elements
-                return { '@list': term.elements.map((element) => Util.termToValue(element, context, options)) };
+                return { '@list': term.elements.map((element) => {
+                        // rdf-undef: a slot is a null in the list under the undefSlots option, and JSON-LD 1.1 has no spelling for it otherwise
+                        if (element.termType === 'Undef') {
+                            if (!options.undefSlots) {
+                                throw new Error(`JSON-LD has no spelling for an empty slot without the undefSlots option: ${term.value}`);
+                            }
+                            return null;
+                        }
+                        return Util.termToValue(element, context, options);
+                    }) };
             case 'NamedNode':
                 const compacted = context.compactIri(term.value, options.vocab);
                 return options.compactIds ? compacted : { '@id': compacted };
