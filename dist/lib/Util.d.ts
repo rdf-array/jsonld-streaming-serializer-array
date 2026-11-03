@@ -38,10 +38,6 @@ export interface ITermToValueOptions {
      */
     useNativeTypes?: boolean;
     /**
-     * rdf-undef: write the empty slot of a sequence as a null in its list. By default a sequence holding a slot is refused.
-     */
-    undefSlots?: boolean;
-    /**
      * If vocab-mode should be used for term compacting.
      * Defaults to false.
      */

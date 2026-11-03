@@ -131,11 +131,6 @@ export interface IJsonLdSerializerOptions {
      */
     useNativeTypes?: boolean;
     /**
-     * rdf-undef: write the empty slot of a sequence as a null in its list. By default a sequence holding a slot is refused,
-     * with an error naming the sequence.
-     */
-    undefSlots?: boolean;
-    /**
      * An optional base IRI for compacting terms.
      * Defaults to null.
      */
